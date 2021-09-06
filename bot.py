@@ -1,5 +1,6 @@
 import aiml
 import os
+import wikipedia
 
 
 #Set path for the brain file. This is were all the *.aiml are stored for rapid access.
@@ -22,8 +23,10 @@ k.respond("load aiml b")
 # To increase the startup speed of the bot it is
 # possible to save the parsed aiml files as a
 # dump. This code checks if a dump exists and
-# otherwise loads the aiml from the xml files
-# and saves the brain dump.
+# otherwise loads the aiml from the startup.xml file
+# and saves the brain dump if you make change to the 
+# aiml sets delete the brain dump file.
+
 if os.path.exists(brain_file):
     print("Loading from brain file: " + brain_file)
     k.loadBrain(brain_file)
@@ -40,6 +43,13 @@ while True:
     input_text = input("Human: ")
     if input_text == "quit":
         exit()
+# When you input "ls" "ls -l" will be ran at the os level.     
+    if input_text == "ls":
+        os.system('ls -l')
+# Search the internet 
+    if input_text == "internet search":
+        print(wikipedia.page("Python").content)
+ 
     elif input_text == "save":
         k.saveBrain("brain.dump")
     else:

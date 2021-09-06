@@ -1,0 +1,20 @@
+<category>
+<pattern>internet *</pattern>
+<template>ok
+<oob><mrl><service>python</service><method>exec</method>
+<param>BareBonesBrowserLaunch.openURL("https://www.google.com/search?newwindow=1&safe=off&site=webhp&source=hp&q=<star/>")</param>
+</mrl></oob>    
+</template>    
+</category>
+
+    <category>
+        <pattern>system mousepad</pattern>
+        <template>
+             <random>
+               <li>Opening mousepad</li>
+               <li>Opening mousepad</li>
+               <li>Opening mousepad</li>
+            </random>
+            <system> open -a "mousepad"</system>
+        </template>
+    </category>
